@@ -2,7 +2,7 @@
 
 function getAllMovies(){
     $pdo = Database:: getInstance()->getConnection();
-    $queryAll = "SELECT * FROM tbl_movies LIMIT 5";
+    $queryAll = "SELECT * FROM tbl_movies";
     $runAll = $pdo->query($queryAll);
     $movies = $runAll->fetchAll(PDO::FETCH_ASSOC);
     if($movies) {
@@ -29,15 +29,32 @@ function getSingleMovie($id){
     }
 }
 
+
+function getMoviesByType($sort){
+    $pdo = Database:: getInstance()->getConnection();
+    $querySort = 'SELECT * FROM tbl_movies WHERE product_type ="'.$sort.'"';
+    $runSort = $pdo->query($querySort);
+  
+    if($runSingle){
+        $movies = $runSort->fetchAll(PDO::FETCH_ASSOC);
+     return $movies;
+    }
+
+    else {
+        return 'oops';
+    }
+}
+
+
+
 function getMoviesByGenre($genre){
     $pdo = Database:: getInstance()->getConnection();
     $query= 'SELECT m.*, GROUP_CONCAT(g.genre_name) as genre_name FROM tbl_movies m';
-    $query.= 'LEFT JOIN tbl_mov_genre link ON link.movies_id = m.movies_id';
-    $query.= 'LEFT JOIN tbl_genre g ON link.genre_id = g.genre_id';
-    $query.= 'GROUP BY m.movies_id';
-    $query.= 'HAVING genre_name LIKE "%'.$genre.'%"';
+    $query.= ' LEFT JOIN tbl_mov_genre link ON link.movies_id = m.movies_id';
+    $query.= ' LEFT JOIN tbl_genre g ON link.genre_id = g.genre_id';
+    $query.= ' GROUP BY m.movies_id';
+    $query.= ' HAVING genre_name LIKE "%'.$genre.'%"';
     $runQuery = $pdo->query($query);
-  
     if($runQuery){
       $movies = $runQuery->fetchAll(PDO::FETCH_ASSOC);
       return $movies;
