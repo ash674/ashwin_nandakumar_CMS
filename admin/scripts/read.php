@@ -32,19 +32,21 @@ function getSingleMovie($id){
 
 function getMoviesByType($sort){
     $pdo = Database:: getInstance()->getConnection();
-    $querySort = 'SELECT * FROM tbl_movies WHERE product_type ="'.$sort.'"';
-    $runSort = $pdo->query($querySort);
-  
-    if($runSingle){
-        $movies = $runSort->fetchAll(PDO::FETCH_ASSOC);
-     return $movies;
+    $query= 'SELECT m.*, GROUP_CONCAT(t.type_name) as type_name FROM tbl_movies m';
+    $query.= ' LEFT JOIN tbl_mov_type link ON link.movies_id = m.movies_id';
+    $query.= ' LEFT JOIN tbl_type t ON link.type_id = t.type_id';
+    $query.= ' GROUP BY m.movies_id';
+    $query.= ' HAVING type_name LIKE "%'.$sort.'%"';
+    $runSortQuery = $pdo->query($query);
+    if($runSortQuery){
+      $movies = $runSortQuery->fetchAll(PDO::FETCH_ASSOC);
+      return $movies;
     }
 
     else {
         return 'oops';
     }
 }
-
 
 
 function getMoviesByGenre($genre){
