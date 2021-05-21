@@ -8,6 +8,10 @@ if(isset($_GET['filter'])) {
     $getMovies = getMoviesByGenre($filter);
 }
 
+elseif(isset($_GET['type'])) {
+    $filter = $_GET['type'];
+    $getMovies = getMoviesByType($filter);
+}
 else{
     $getMovies = getAllMovies();
 }
@@ -38,5 +42,4 @@ else{
 
 
 </body>
-<script src="dropdown.js"></script>
 </html>

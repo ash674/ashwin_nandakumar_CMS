@@ -20,8 +20,8 @@
   <button class="dropbtn">Sort</button>
   <div class="dropdown-content">
       <a href="index.php?type=shoes">Shoes</a>
-    <a href="index.php?type=jackets">Jackets</a>
-    <a href="index.php?type=hoodies">Hoodies</a>
+    <a href="index.php?type=jacket">Jackets</a>
+    <a href="index.php?type=hoodie">Hoodies</a>
   </div>
 </div>
 </header>   
