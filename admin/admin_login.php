@@ -35,6 +35,7 @@ echo '</div>';
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet"></head>
 <body>
+    <img src="../images/sportchek-logo.png" alt="logo" class="logoAdmin">
 <?php echo !empty($message)?$message:''; ?>
     <form action="admin_login.php" method="post">
     <label for="username"></label>

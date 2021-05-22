@@ -12,6 +12,8 @@
      <a href="index.php">All</a>
     </nav>
     </section>
+
+    <section class="adminRedirect"><a href="./admin/index.php"><img src="./images/admin.svg" alt=""></a></section>
 </section>
 
 
