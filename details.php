@@ -18,7 +18,7 @@ if(isset($_GET['id'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
-    <title>Welcome to details page bruh</title>
+    <title>Welcome to details page</title>
 </head>
 <body>
 
@@ -27,11 +27,11 @@ if(isset($_GET['id'])){
     <div class='movie-item'>
 <img src="images/<?php echo $movie['movies_cover']; ?>" alt="<?php echo $movie['movies_title']; ?> Cover image">
 <h2><?php echo $movie['movies_title']; ?></h2>
-<h4>Movie released: <?php echo $movie['movies_release']; ?></h4>
-<p>Plot: <?php echo $movie['movies_storyline']; ?></h4>
+<h4>Colors Available: <?php echo $movie['movies_release']; ?></h4>
+<p>Description: <?php echo $movie['movies_storyline']; ?></h4>
 </div>
 <?php else:?>
-    <p>There isnt such a movie</p>
+    <p>There isnt such a product</p>
     <?php endif;?>
 
     <?php include './template/footer.php'; ?>
