@@ -6,6 +6,11 @@ require_once './admin/scripts/read.php';
 if(isset($_GET['filter'])) {
     $filter = $_GET['filter'];
     $getMovies = getMoviesByGenre($filter);
+    if(isset($_GET['type'])) {
+        $sort = $_GET['type'];
+    $filter = $_GET['filter'];
+        $getMovies = getMoviesByTypeandGenre($filter, $sort);
+    }
 }
 
 elseif(isset($_GET['type'])) {
