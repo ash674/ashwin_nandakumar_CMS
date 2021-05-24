@@ -25,10 +25,15 @@ if(isset($_GET['id'])){
 <?php include './template/header.php'; ?>     
 <?php if(!empty($movie)):?>
     <div class='movie-item'>
-<img src="images/<?php echo $movie['movies_cover']; ?>" alt="<?php echo $movie['movies_title']; ?> Cover image">
+        <section class="movieEle">
+<img src="images/<?php echo $movie['movies_cover']; ?>" alt="<?php echo $movie['movies_title']; ?> Cover image" class="detailsImage">
+<section class="movieCon">
 <h2><?php echo $movie['movies_title']; ?></h2>
+<h4>Price: $<?php echo $movie['movies_year']; ?></h4>
 <h4>Colors Available: <?php echo $movie['movies_release']; ?></h4>
 <p>Description: <?php echo $movie['movies_storyline']; ?></h4>
+</section>
+</section>
 </div>
 <?php else:?>
     <p>There isnt such a product</p>
