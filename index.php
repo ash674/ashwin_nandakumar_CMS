@@ -6,17 +6,18 @@ require_once './admin/scripts/read.php';
 if(isset($_GET['filter'])) {
     $filter = $_GET['filter'];
     $getMovies = getMoviesByGenre($filter);
-    if(isset($_GET['type'])) {
-        $sort = $_GET['type'];
-    $filter = $_GET['filter'];
-        $getMovies = getMoviesByTypeandGenre($filter, $sort);
-    }
 }
 
 elseif(isset($_GET['type'])) {
     $filter = $_GET['type'];
     $getMovies = getMoviesByType($filter);
 }
+
+elseif(isset($_GET['submit'])) {
+    $filter = $_GET['submit'];
+    $getMovies = getMoviesByType($filter);
+}
+
 else{
     $getMovies = getAllMovies();
 }
@@ -32,7 +33,10 @@ else{
 </head>
 <body>
 <?php include 'template/header.php'; ?> 
-
+<form method="GET" >
+<input id="search" name="search" type="text" placeholder="search">
+<input id="submit" type="submit" value="Search">
+</form>
 <section class="movie-disp">
 <?php foreach ($getMovies as $movie):?>
     <div class='movie-item'>
@@ -42,6 +46,7 @@ else{
 </div>
     <?php endforeach;?>
     </section>
+    
     <?php include './template/footer.php'; ?>
  
 
