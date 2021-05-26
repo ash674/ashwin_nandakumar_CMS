@@ -87,3 +87,4 @@ function getMoviesByTypeandGenre($fil, $sor) {
         return 'oops';
     }
 }
+
