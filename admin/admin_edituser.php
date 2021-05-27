@@ -2,7 +2,7 @@
 require_once '../load.php';
 confirm_logged_in();
 
-$id = $_SESSION['user_id'];
+$id = $_GET['user_id'];
 $current_user = getSingleUser($id);
 
 if(empty($current_user)){
@@ -12,11 +12,11 @@ if(empty($current_user)){
 
 if(isset($_POST['submit'])){
 $data = array (
-    'fname'=>trim($_POST['fname']),
-    'username'=>trim($_POST['username']),
-    'password'=>trim($_POST['password']),
-    'email'=>trim($_POST['email']),
-    'user_level'=>isCurrentUserAdminAbove()?trim($_POST['user_level']):'0',
+    'movies_cover'=>trim($_POST['movies_cover']),
+    'movies_title'=>trim($_POST['movies_title']),
+    'movies_storyline'=>trim($_POST['movies_storyline']),
+    'movies_release'=>trim($_POST['movies_release']),
+    'movies_year'=>trim($_POST['movies_year']),
     'id'=>$id
 );
 
@@ -43,34 +43,28 @@ $message = editUser($data);
     <form action="admin_edituser.php" method="post">
 <?php while($user_info = $current_user->fetch(PDO::FETCH_ASSOC)):?>
 
- <label for="first_name">First Name</label>
- <input type="text" name="fname" value="<?php echo $user_info['user_fname']; ?>"  id="first_name">
+ <label for="first_name">Cover</label>
+ <input type="text" name="movies_cover" value="<?php echo $user_info['movies_cover']; ?>"  id="first_name">
 
  
- <label for="username">User Name</label>
- <input type="text" name="username" value="<?php echo $user_info['user_name']; ?>" id="username">
+ <label for="username">Name</label>
+ <input type="text" name="movies_title" value="<?php echo $user_info['movies_title']; ?>" id="username">
 
  
- <label for="password">password</label>
- <input type="text" name="password" value="<?php echo $user_info['user_pass']; ?>" id="password">
+ <label for="password">Description</label>
+ <input type="text" name="movies_storyline" value="<?php echo $user_info['movies_storyline']; ?>" id="password">
 
  
- <label for="email">email</label>
- <input type="email" name="email" value="<?php echo $user_info['user_email']; ?>" id="email">
- <?php if(isCurrentUserAdminAbove()): ?>
- <label for="user_level">User level</label>
- <select name="user_level" id="user_level">
- <?php $user_level_map = getUserLevelMap();
- foreach ($user_level_map as $val => $label):?>
- <option value="<?php echo $val;?>" <?php echo $val===(int)$user_info['user_level']?'selected':'';?>>
- <?php echo $label;?>
+ <label for="username">Color</label>
+ <input type="text" name="movies_release" value="<?php echo $user_info['movies_release']; ?>" id="email">
+
+
+ <label for="username">Price</label>
+ <input type="text" name="movies_year" value="<?php echo $user_info['movies_year']; ?>" id="username">
+
  
- </option>
- <?php endforeach; ?>
- 
- </select>
-<?php endif; ?>
  <button type="submit" name="submit">Update user</button>
+
  <?php endwhile;?>
  </form>
 
