@@ -5,11 +5,11 @@ confirm_logged_in(true);
 
 if(isset($_POST['submit'])) {
     $data = array(
-        'fname'=>trim($_POST['fname']),
-        'username'=>trim($_POST['username']),
-        'email'=>trim($_POST['email']),
-        'password'=>trim($_POST['password']),
-        'user_level'=>trim($_POST['user_level'])
+        'movies_cover'=>trim($_POST['movies_cover']),
+        'movies_title'=>trim($_POST['movies_title']),
+        'movies_year'=>trim($_POST['movies_year']),
+        'movies_storyline'=>trim($_POST['movies_storyline']),
+        'movies_release'=>trim($_POST['movies_release'])
  );
 
     $message = createUser($data);
@@ -32,57 +32,30 @@ if(isset($_POST['submit'])) {
 </head>
 <body>
 <section class="createSection">
-<h2>Create User</h2>
+<h2>Create Entry</h2>
 <?php echo !empty($message)?$message:''; ?>
 <form action="admin_createuser.php" method="post">
-<label>First Name</label>
-<input type="text" name="fname" value="" id="first_name">
+<label>Product Cover</label>
+<input type="text" name="movies_cover" value="" id="first_name">
 
 
-<label for="username">UserName</label>
-<input type="text" name="username" value="" id="username">
+<label for="username">Product Title</label>
+<input type="text" name="movies_title" value="" id="username">
 
 
-<label for="email">Email</label>
-<input type="email" name="email" value="" id="email">
+<label for="name">Product Price</label>
+<input type="name" name="movies_year" value="" id="price">
 
 
-<label for="password">Password</label>
-<input type="text" name="password" value="" id="password">
+<label for="password">Product Description</label>
+<input type="text" name="movies_storyline" value="" id="password">
 
 
-<label for="user_level">User Level</label>
-<select name="user_level" id="user_level">
-<?php $user_level_map = getUserLevelMap();
-foreach($user_level_map as $val => $label):?>
-
-<option value="<?php echo $val;?>"><?php echo $label; ?></option>
-<?php endforeach;?>
-</select>
+<label for="password">Product Color</label>
+<input type="text" name="movies_release" value="" id="password">
 
 <button type="submit" name="submit" >Create</button>
 
-<?php 
-
-
-if(isset($_POST['submit'])){
-$to = $_POST['email'];
-$subject = 'Created new user';
-$message = 'This email is to notify that you have successfully Created a new user';
-$headers = 'From: donotreply@gmail.com';
-mail($to, $subject, $message, $headers);
-
-function passwordGenerator() {
-    $all_possible_alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-    $password = array();
-    $alphabetsLen = strlen($all_possible_alphabet) ; 
-    for ($i = 0; $i < 8; $i++) {
-        $pass_var = rand(0, $alphabetsLen);
-        $password[] = $all_possible_alphabet[$pass_var];
-    } 
-}
-}
-?>
 
 </form>
 </body>

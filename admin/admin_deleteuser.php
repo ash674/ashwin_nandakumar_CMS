@@ -34,9 +34,9 @@ if(isset($_GET['id'])){
     <table>
         <thead>
             <tr>
-                <th>User Id</th>
-                <th>User Name</th>
-                <th>User Email</th>
+                <th>Product Name</th>
+                <th>Product Description</th>
+                <th>Product Price</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -45,10 +45,10 @@ if(isset($_GET['id'])){
             <?php while($single_user = $users->fetch(PDO::FETCH_ASSOC)): ?>
 
             <tr>
-                <td><?php echo $single_user['user_id']; ?></td>
-                <td><?php echo $single_user['user_name']; ?></td>
-                <td><?php echo $single_user['user_email']; ?></td>
-                <td><a href="admin_deleteuser.php?id=<?php echo $single_user['user_id']; ?>">Delete</a></td>
+                <td><?php echo $single_user['movies_title']; ?></td>
+                <td><?php echo $single_user['movies_storyline']; ?></td>
+                <td><?php echo $single_user['movies_release']; ?></td>
+                <td><a href="admin_deleteuser.php?id=<?php echo $single_user['movies_id']; ?>">Delete</a></td>
             </tr>
             <?php endwhile; ?>
         </tbody>

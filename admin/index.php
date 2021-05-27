@@ -17,11 +17,10 @@ confirm_logged_in();
     <h2>Welcome to Dashboard page <?php echo $_SESSION['user_name']; ?> </h2>
     <section class='options'>
    <?php if(isCurrentUserAdminAbove()): ?>
-     <a href="admin_createuser.php">Create User</a>
-     <a href="admin_deleteuser.php">Delete User</a>
-     <a href="admin_editother.php">Edit other users</a>
+     <a href="admin_createuser.php">Create Entry</a>
+     <a href="admin_deleteuser.php">Delete Entry</a>
+     <a href="admin_editother.php">Edit entries</a>
    <?php endif;?>
-    <a href="admin_edituser.php">Edit user</a>
     <a href="admin_logout.php">Sign out</a>
     </section>
     </section>
