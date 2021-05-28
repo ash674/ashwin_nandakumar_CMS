@@ -2,7 +2,7 @@
 require_once '../load.php';
 confirm_logged_in();
 
-$id = $_SESSION['movies_id'];
+$id = $_GET["movies_id"];
 $current_user = getSingleUser($id);
 
 if(empty($current_user)){

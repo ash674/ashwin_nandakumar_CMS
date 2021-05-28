@@ -55,8 +55,7 @@ else{
 
 function getSingleUser($user_id){
     $pdo = Database::getInstance()->getConnection();
-
-   $get_user_query = 'SELECT * FROM tbl_movies WHERE movies_id = :id';
+    $get_user_query = 'SELECT * FROM tbl_movies WHERE movies_id = :id';
    $get_user_set = $pdo->prepare($get_user_query);
    $result = $get_user_set->execute(
        array(
