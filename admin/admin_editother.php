@@ -1,17 +1,6 @@
 <?php
  require_once '../load.php';
  confirm_logged_in(true);
-if(isset($_GET['id'])){
-    $delete_user_id = $_GET['id'];
-
-    $delete_result = deleteUser($delete_user_id);
-
-    if(!$delete_result){
-        $message = 'failed to delete user';
-    }
-
-
-}
  $users = getAllUsers();
 
  if(!$users){
@@ -25,6 +14,8 @@ if(isset($_GET['id'])){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">  
     <title>Edit User</title>
 </head>
 <body>
@@ -45,11 +36,11 @@ if(isset($_GET['id'])){
             <?php while($single_user = $users->fetch(PDO::FETCH_ASSOC)): ?>
 
             <tr>
+                <td><?php echo $single_user['movies_id']; ?></td>
                 <td><?php echo $single_user['movies_title']; ?></td>
-                <td><?php echo $single_user['movies_storyline']; ?></td>
                 <td><?php echo $single_user['movies_release']; ?></td>
                 <td><a href="admin_edituser.php?id=<?php echo $single_user['movies_id']; ?>">Edit</a></td>
-            </tr>
+           </tr>
             <?php endwhile; ?>
         </tbody>
     </table>

@@ -2,7 +2,7 @@
 require_once '../load.php';
 confirm_logged_in();
 
-$id = $_GET['user_id'];
+$id = $_SESSION['movies_id'];
 $current_user = getSingleUser($id);
 
 if(empty($current_user)){
@@ -16,8 +16,7 @@ $data = array (
     'movies_title'=>trim($_POST['movies_title']),
     'movies_storyline'=>trim($_POST['movies_storyline']),
     'movies_release'=>trim($_POST['movies_release']),
-    'movies_year'=>trim($_POST['movies_year']),
-    'id'=>$id
+    'movies_year'=>trim($_POST['movies_year'])
 );
 
 $message = editUser($data);
@@ -30,7 +29,6 @@ $message = editUser($data);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">    
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <title>Edit user</title>
