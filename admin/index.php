@@ -13,6 +13,7 @@ confirm_logged_in();
     <title>Dashboard page</title>
 </head>
 <body>
+    <img src="../images/sportchek-logo.png" alt="logo" class="logoBody">
 <section class='body'>
     <h2>Welcome to Dashboard page <?php echo $_SESSION['user_name']; ?> </h2>
     <section class='options'>

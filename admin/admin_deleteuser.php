@@ -24,6 +24,9 @@ if(isset($_GET['id'])){
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="sub.css">    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete User</title>
 </head>
