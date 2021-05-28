@@ -40,7 +40,7 @@
                 <td><?php echo $single_user['movies_id']; ?></td>
                 <td><?php echo $single_user['movies_title']; ?></td>
                 <td><?php echo $single_user['movies_release']; ?></td>
-                <td><a href="admin_edituser.php?id=<?php echo $single_user['movies_id']; ?>">Edit</a></td>
+                <td><a href="admin_edituser.php?movies_id=<?php echo $single_user['movies_id']; ?>">Edit</a></td>
            </tr>
             <?php endwhile; ?>
         </tbody>
