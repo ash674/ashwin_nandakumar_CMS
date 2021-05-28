@@ -56,7 +56,7 @@ else{
 function getSingleUser($user_id){
     $pdo = Database::getInstance()->getConnection();
 
-   $get_user_query = 'SELECT * FROM tbl_movies WHERE user_id = :id';
+   $get_user_query = 'SELECT * FROM tbl_movies WHERE movies_id = :id';
    $get_user_set = $pdo->prepare($get_user_query);
    $result = $get_user_set->execute(
        array(
@@ -107,7 +107,7 @@ function userExists($username) {
 
 function deleteUser($user_id){
 $pdo = Database::getInstance()->getConnection();
-$delete_user_query = 'DELETE FROM tbl_movies WHERE user_id = :id';
+$delete_user_query = 'DELETE FROM tbl_movies WHERE movies_id = :id';
 $delete_user_set = $pdo->prepare($delete_user_query);
 $delete_user_result = $delete_user_set->execute(
     array(
@@ -129,7 +129,7 @@ function editUser($user_data){
     
         $pdo = Database::getInstance()->getConnection();
     
-        $update_user_query = 'UPDATE tbl_movies SET movies_cover = :movies_cover, movies_title = :movies_title, movies_storyline = :movies_storyline, movies_release = :movies_release, movies_year = :movies_year, WHERE user_id = :id';
+        $update_user_query = 'UPDATE tbl_movies SET movies_cover = :movies_cover, movies_title = :movies_title, movies_storyline = :movies_storyline, movies_release = :movies_release, movies_year = :movies_year, WHERE movies_id = :id';
         $update_user_set = $pdo->prepare($update_user_query);
         $update_user_result = $update_user_set->execute(
             array(
@@ -137,8 +137,7 @@ function editUser($user_data){
                 ':movies_title'=> $user_data['movies_title'],
                 ':movies_storyline'=> $user_data['movies_storyline'],
                 ':movies_release'=> $user_data['movies_release'],
-                ':movies_year'=> $user_data['movies_year'],
-                ':id'=> $user_data['id'],
+                ':movies_year'=> $user_data['movies_year']
             )
         );
 
