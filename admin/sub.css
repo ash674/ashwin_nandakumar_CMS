@@ -1,0 +1,25 @@
+body {
+    background-color: #7a7a7a;
+}
+
+
+table {
+   color: aliceblue; 
+   font-family: 'Quicksand',Arial,Helvetica, sans-serif;
+   font-size: 14px;
+   margin-top: 20px;
+}
+
+th {
+    color: rgb(205, 207, 245);
+}
+td {
+    padding-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    font-family: 'Quicksand',Arial,Helvetica, sans-serif;
+  color: rgb(167, 241, 30);
+}
+

@@ -22,7 +22,7 @@ if(isset($_GET['id'])){
 </head>
 <body>
 
-<?php include './template/header.php'; ?>     
+<?php include './template/detailsheader.php';?>     
 <?php if(!empty($movie)):?>
     <div class='movie-item'>
         <section class="movieEle">
