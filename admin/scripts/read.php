@@ -10,7 +10,7 @@ function getAllMovies(){
 
     } 
     else {
-        return 'oops';
+        return 'No entries found';
     }
 }
 
@@ -25,7 +25,7 @@ function getSingleMovie($id){
     }
 
     else {
-        return 'oops';
+        return 'No entries found';
     }
 }
 
@@ -44,7 +44,7 @@ function getMoviesByType($sort){
     }
 
     else {
-        return 'oops';
+        return 'No entries found';
     }
 }
 
@@ -67,24 +67,22 @@ function getMoviesByGenre($genre){
     }
 }
 
-function getMoviesByTypeandGenre($fil, $sor) {
+
+
+function getMoviesBySearch($search){
     $pdo = Database:: getInstance()->getConnection();
-    $query= 'SELECT m.*, GROUP_CONCAT(g.genre_name) as genre_name, GROUP_CONCAT(t.type_name) as type_name FROM tbl_movies m';
-    $query.= ' LEFT JOIN tbl_mov_genre link ON link.movies_id = m.movies_id';
-    $query.= ' LEFT JOIN tbl_genre g ON link.genre_id = g.genre_id';
+    $query= 'SELECT m.*, GROUP_CONCAT(t.type_name) as type_name FROM tbl_movies m';
     $query.= ' LEFT JOIN tbl_mov_type link ON link.movies_id = m.movies_id';
-    $query.= ' LEFT JOIN tbl_type t ON link.genre_id = t.genre_id';
+    $query.= ' LEFT JOIN tbl_type t ON link.type_id = t.type_id';
     $query.= ' GROUP BY m.movies_id';
-    $query.= ' HAVING genre_name LIKE "%'.$fil.'%" AND type_name LIKE "%'.$sor.'%"';
+    $query.= ' HAVING type_name LIKE "%'.$search.'%"';
+    $runAll = $pdo->query($query);
+    if($runAll) {
+        $movies = $runAll->fetchAll(PDO::FETCH_ASSOC);
+        return $movies;
 
-    $runQuery = $pdo->query($query);
-    if($runQuery){
-      $movies = $runQuery->fetchAll(PDO::FETCH_ASSOC);
-      return $movies;
-    }
-
+    } 
     else {
-        return 'oops';
+        return 'No entries found';
     }
 }
-

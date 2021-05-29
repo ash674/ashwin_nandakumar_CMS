@@ -2,7 +2,6 @@
 require_once './config/database.php';
 require_once './admin/scripts/read.php';
 
-
 if(isset($_GET['filter'])) {
     $filter = $_GET['filter'];
     $getMovies = getMoviesByGenre($filter);
@@ -14,8 +13,8 @@ elseif(isset($_GET['type'])) {
 }
 
 elseif(isset($_GET['submit'])) {
-    $filter = $_GET['submit'];
-    $getMovies = getMoviesByType($filter);
+    $submit = $_GET['submit'];
+    $getMovies = getMoviesBySearch($submit);
 }
 
 else{
@@ -33,10 +32,6 @@ else{
 </head>
 <body>
 <?php include 'template/header.php'; ?> 
-<form method="GET" >
-<input id="search" name="search" type="text" placeholder="search">
-<input id="submit" type="submit" value="Search">
-</form>
 <section class="movie-disp">
 <?php foreach ($getMovies as $movie):?>
     <div class='movie-item'>
