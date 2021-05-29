@@ -52,10 +52,11 @@ footer{
     flex-direction: column;
     margin: 20px;
     flex-wrap: wrap;
-    border: 1px solid #949494;
 }
 .movie-item img {
     margin: auto;
+    padding: 15px;
+    border: 3px solid #5a5a5a;
 }
 
 .movieEle img {
@@ -107,7 +108,15 @@ footer{
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.sortAndSearch {
+    display: flex;
+    flex-direction: row;
+}
 
+form {
+    margin-left: 130px;
+    margin-top: 10px;
+}
 .movie-item h4 {
     display: flex;
     font-size: 14px;
@@ -127,9 +136,10 @@ footer{
     justify-content: center;
     text-decoration: none;
     font-size: 14px;
-    color: rgb(46, 46, 46);
-    border: 3px solid #3d3d3d;
+    color: rgb(241, 241, 241);
+    background-color: #3d3d3d;
     width: 90px;
+    padding: 5px;
     margin: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -139,11 +149,6 @@ footer{
     margin-left: 150px;
 }
 
-.movie-item a:hover {
-    color: rgb(241, 241, 241);
-    background-color: #3d3d3d;
-    transition: 150ms ease-out;
-}
 
 .dropbtn {
     background-color: #3d3d3d;
