@@ -41,4 +41,5 @@ if(isset($_GET['id'])){
 
     <?php include './template/footer.php'; ?>
 </body>
+<script src="js/menu.js"></script>
 </html>

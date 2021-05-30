@@ -5,7 +5,9 @@
     <img src="images/sportchek-logo.png" alt="">
     </section>
     <section class="filterNav">
-    <nav>
+    <nav id="headNav">
+    <button id="button"></button>
+    <div id="burgerCon">
     <a href="index.php?filter=man">Men</a>
     <a href="index.php?filter=female">Women</a>
     <a href="index.php?filter=children">Kids</a>
@@ -14,7 +16,9 @@
     </section>
 
     <section class="adminRedirect"><a href="./admin/index.php"><img src="./images/admin.svg" alt=""></a></section>
-</section>
+
+    </div>
+  </section>
 
 <section class="sortAndSearch">
 

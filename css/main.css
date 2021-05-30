@@ -13,6 +13,26 @@
     margin-bottom: 40px;
 }
 
+#burgerCon {
+    display: none;
+  }
+#headNav #button {
+    background: url(../images/burger_menu.svg) center no-repeat;
+    border: 0px;
+    width: 20px;
+    height: 20px;
+    transition: all 400ms ease;
+  }
+  
+  #headNav #button.expanded {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  
+  #burgerCon.slideToggle {
+    display: block;
+  }
 
 footer{
     display: flex;
@@ -140,7 +160,7 @@ form {
     background-color: #3d3d3d;
     width: 90px;
     padding: 5px;
-    margin: 20px;
+    margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -187,3 +207,102 @@ form {
     display: block;
   }
   
+  @media (min-width: 500px) {
+      .movie-disp {
+          width: 500px;
+      }
+      .filterNav {
+          margin-left: 80px;
+      }
+
+      .dropdown-content {
+          min-width: 120px;
+      }
+  }
+
+  
+  @media (min-width: 700px) {
+    .movie-disp {
+        width: 700px;
+    }
+    
+    .filterNav {
+        margin-left: 120px;
+    }
+
+    .dropdown-content {
+        min-width: 120px;
+    }
+}
+
+
+@media (min-width: 900px) {
+    
+  #button {
+    display: none;
+  }
+
+  #burgerCon.slideToggle {
+    display: none;
+  }
+
+  #burgerCon {
+    display: flex;
+    flex-direction: row;
+  }
+    .movie-disp {
+        width: 900px;
+    }
+    
+    .filterNav {
+        margin-left: 140px;
+    }
+
+    .dropdown-content {
+        min-width: 140px;
+    }
+}
+
+
+@media (min-width: 1100px) {
+    .movie-disp {
+        width: 1100px;
+    }
+
+    .filterNav {
+        margin-left: 160px;
+    }
+    .dropdown-content {
+        min-width: 160px;
+    }
+}
+
+
+
+@media (min-width: 1300px) {
+    .movie-disp {
+        width: 1300px;
+    }
+
+    .filterNav {
+        margin-left: 300px;
+    }
+    .dropdown-content {
+        min-width: 160px;
+    }
+}
+
+
+
+@media (min-width: 1500px) {
+    .movie-disp {
+        width: 1500px;
+    }
+
+    .filterNav {
+        margin-left: 400px;
+    }
+    .dropdown-content {
+        min-width: 160px;
+    }
+}
