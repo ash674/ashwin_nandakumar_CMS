@@ -80,8 +80,7 @@ function getMoviesBySearch($search){
     if($runAll) {
         $movies = $runAll->fetchAll(PDO::FETCH_ASSOC);
         return $movies;
-
-    } 
+      } 
     else {
         return 'No entries found';
     }
