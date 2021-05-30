@@ -12,9 +12,9 @@ elseif(isset($_GET['type'])) {
     $getMovies = getMoviesByType($filter);
 }
 
-elseif(isset($_GET['submit'])) {
-    $submit = $_GET['submit'];
-    $getMovies = getMoviesBySearch($submit);
+elseif(isset($_GET['search'])) {
+    $submit = $_GET['search'];
+    $getMovies = getMoviesByType($submit);
 }
 
 else{
