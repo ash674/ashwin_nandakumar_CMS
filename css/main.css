@@ -211,6 +211,21 @@ form {
       .movie-disp {
           width: 500px;
       }
+      
+.movieCon h2,h4,p {
+    margin-left: 30px;
+}
+.movieCon {
+    display: flex;
+    width: 400px;
+}
+
+.movieEle img {
+    display: flex;
+    margin-left: 100px;
+}
+
+
       .filterNav {
           margin-left: 80px;
       }
@@ -226,9 +241,19 @@ form {
         width: 700px;
     }
     
+.movieEle img {
+    display: flex;
+    margin-left: 230px;
+}
+
     .filterNav {
         margin-left: 120px;
     }
+    .movieCon {
+        display: flex;
+        width: 500px;
+    }
+    
 
     .dropdown-content {
         min-width: 120px;
@@ -246,6 +271,14 @@ form {
     display: none;
   }
 
+  .movieCon {
+    display: flex;
+    width: 600px;
+}
+  .movieEle img {
+    display: flex;
+    margin-left: 300px;
+}
   #burgerCon {
     display: flex;
     flex-direction: row;
@@ -269,12 +302,20 @@ form {
         width: 1100px;
     }
 
+    .movieEle img {
+        display: flex;
+        margin-left: 400px;
+    }
     .filterNav {
         margin-left: 160px;
     }
     .dropdown-content {
         min-width: 160px;
     }
+    .movieCon {
+      display: flex;
+      width: 700px;
+  }
 }
 
 
@@ -283,10 +324,18 @@ form {
     .movie-disp {
         width: 1300px;
     }
+    .movieEle img {
+        display: flex;
+        margin-left: 500px;
+    }
 
     .filterNav {
         margin-left: 300px;
     }
+    .movieCon {
+      display: flex;
+      width: 900px;
+  }
     .dropdown-content {
         min-width: 160px;
     }
@@ -299,6 +348,14 @@ form {
         width: 1500px;
     }
 
+    .movieEle img {
+        display: flex;
+        margin-left: 600px;
+    }
+    .movieCon {
+      display: flex;
+      width: 1100px;
+  }
     .filterNav {
         margin-left: 400px;
     }
