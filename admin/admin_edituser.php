@@ -3,7 +3,8 @@ require_once '../load.php';
 confirm_logged_in();
 
 $id = $_GET["movies_id"];
-$current_user = getSingleUser($id);
+$realid = $id;
+$current_user = getSingleUser($realid);
 
 if(empty($current_user)){
     $message = 'Failed to get user info';
@@ -16,7 +17,9 @@ $data = array (
     'movies_title'=>trim($_POST['movies_title']),
     'movies_storyline'=>trim($_POST['movies_storyline']),
     'movies_release'=>trim($_POST['movies_release']),
-    'movies_year'=>trim($_POST['movies_year'])
+    'movies_year'=>trim($_POST['movies_year']),
+    'movies_id'=>$realid
+
 );
 
 $message = editUser($data);
