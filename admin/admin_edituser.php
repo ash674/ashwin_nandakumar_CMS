@@ -2,7 +2,10 @@
 require_once '../load.php';
 confirm_logged_in();
 
+
 $id = $_GET["movies_id"];
+
+
 $realid = $id;
 $current_user = getSingleUser($realid);
 
@@ -19,7 +22,7 @@ $data = array (
     'movies_release'=>trim($_POST['movies_release']),
     'movies_year'=>trim($_POST['movies_year']),
     'product_type'=>trim($_POST['product_type']),
-    'movies_id'=>$realid
+    'movies_id'=>trim($_POST['movies_id'])
 
 );
 
@@ -69,7 +72,7 @@ $message = editUser($data);
  <label for="username">Type</label>
  <input type="text" name="product_type" value="<?php echo $user_info['product_type']; ?>" id="username">
 
- 
+ <input type="hidden" name="movies_id" value="<?php echo $_GET["movies_id"]; ?>">
  <button type="submit" name="submit">Update user</button>
 
  <?php endwhile;?>
