@@ -48,6 +48,24 @@ function getMoviesByType($sort){
     }
 }
 
+function getMoviesByTypeAndName($sort){
+    $pdo = Database:: getInstance()->getConnection();
+    $query= 'SELECT m.*, GROUP_CONCAT(t.type_name) as type_name FROM tbl_movies m';
+    $query.= ' LEFT JOIN tbl_mov_type link ON link.movies_id = m.movies_id';
+    $query.= ' LEFT JOIN tbl_type t ON link.type_id = t.type_id';
+    $query.= ' GROUP BY m.movies_id';
+    $query.= ' HAVING type_name LIKE "%'.$sort.'%" OR movies_title LIKE "%'.$sort.'%"';
+    $runSortQuery = $pdo->query($query);
+    if($runSortQuery){
+      $movies = $runSortQuery->fetchAll(PDO::FETCH_ASSOC);
+      return $movies;
+    }
+
+    else {
+        return 'No entries found';
+    }
+}
+
 
 function getMoviesByGenre($genre){
     $pdo = Database:: getInstance()->getConnection();

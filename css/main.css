@@ -169,6 +169,15 @@ form {
     margin-left: 150px;
 }
 
+.redLink {
+    background-color: #3d3d3d;
+    color: white;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+}
+
 
 .dropbtn {
     background-color: #3d3d3d;

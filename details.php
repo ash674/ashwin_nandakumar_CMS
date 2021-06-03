@@ -23,6 +23,7 @@ if(isset($_GET['id'])){
 <body>
 
 <?php include './template/detailsheader.php';?>     
+<a href="index.php" class="redLink">Go back</a>
 <?php if(!empty($movie)):?>
     <div class='movie-item'>
         <section class="movieEle">
