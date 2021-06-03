@@ -26,12 +26,13 @@ function createUser($user_data){
 
 $pdo = Database::getInstance()->getConnection();
 
-$create_user_query = 'INSERT INTO tbl_movies(movies_cover, movies_title, movies_year, movies_storyline, movies_release)';
-$create_user_query.= ' VALUES(:movies_cover, :movies_title, :movies_year, :movies_storyline, :movies_release)';
+$create_user_query = 'INSERT INTO tbl_movies(movies_id, movies_cover, movies_title, movies_year, movies_storyline, movies_release)';
+$create_user_query.= ' VALUES(:movies_id, :movies_cover, :movies_title, :movies_year, :movies_storyline, :movies_release)';
 $create_user_set = $pdo->prepare($create_user_query);
 $create_user_result = $create_user_set->execute(
 
     array(
+':movies_id'=>$user_data['movies_id'],
 ':movies_cover'=>$user_data['movies_cover'],
 ':movies_title'=>$user_data['movies_title'],
 ':movies_year'=>$user_data['movies_year'],

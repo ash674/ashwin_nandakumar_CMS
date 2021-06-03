@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 03, 2021 at 03:55 PM
+-- Generation Time: Jun 03, 2021 at 05:12 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.9
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `tbl_movies` (
   `movies_id` mediumint(8) UNSIGNED NOT NULL AUTO_INCREMENT,
   `movies_cover` varchar(75) NOT NULL DEFAULT 'cover_default.jpg',
   `movies_title` varchar(125) NOT NULL,
-  `movies_year` varchar(5) NOT NULL,
+  `movies_year` varchar(50) NOT NULL,
   `movies_storyline` text NOT NULL,
   `movies_release` varchar(125) NOT NULL,
   `product_type` varchar(30) NOT NULL,
