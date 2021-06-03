@@ -5,6 +5,7 @@ confirm_logged_in(true);
 
 if(isset($_POST['submit'])) {
     $data = array(
+        'movies_id'=>trim($_POST['movies_id']),
         'movies_cover'=>trim($_POST['movies_cover']),
         'movies_title'=>trim($_POST['movies_title']),
         'movies_year'=>trim($_POST['movies_year']),
@@ -38,6 +39,9 @@ if(isset($_POST['submit'])) {
 <h2>Create Entry</h2>
 <?php echo !empty($message)?$message:''; ?>
 <form action="admin_createuser.php" method="post">
+<label>Product Id</label>
+<input type="id" name="movies_id" value="" id="movies_id">
+
 <label>Product Cover</label>
 <input type="text" name="movies_cover" value="" id="first_name">
 
