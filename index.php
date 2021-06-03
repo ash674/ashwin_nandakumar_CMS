@@ -14,7 +14,7 @@ elseif(isset($_GET['type'])) {
 
 elseif(isset($_GET['search'])) {
     $submit = $_GET['search'];
-    $getMovies = getMoviesByType($submit);
+    $getMovies = getMoviesByTypeAndName($submit);
 }
 
 else{
