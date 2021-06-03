@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 03, 2021 at 03:32 PM
+-- Generation Time: Jun 03, 2021 at 03:55 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.4.9
 
@@ -304,6 +304,7 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
   `user_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_ip` varchar(50) NOT NULL DEFAULT 'no',
   `user_level` int(5) NOT NULL,
+  `login_time` varchar(50) NOT NULL,
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
@@ -311,9 +312,9 @@ CREATE TABLE IF NOT EXISTS `tbl_user` (
 -- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_name`, `user_pass`, `user_email`, `user_date`, `user_ip`, `user_level`) VALUES
-(1, '', 'admin', 'admin123', '', '2021-05-27 13:23:11', '::1', 1),
-(2, '', 'add', 'add', '', '2021-06-01 02:25:53', 'no', 1);
+INSERT INTO `tbl_user` (`user_id`, `user_fname`, `user_name`, `user_pass`, `user_email`, `user_date`, `user_ip`, `user_level`, `login_time`) VALUES
+(1, '', 'admin', 'admin123', '', '2021-05-27 13:23:11', '::1', 1, '2021-06-03 21:23:20'),
+(2, '', 'add', 'add', '', '2021-06-01 02:25:53', 'no', 1, '');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
