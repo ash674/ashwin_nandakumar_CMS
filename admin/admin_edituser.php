@@ -18,6 +18,7 @@ $data = array (
     'movies_storyline'=>trim($_POST['movies_storyline']),
     'movies_release'=>trim($_POST['movies_release']),
     'movies_year'=>trim($_POST['movies_year']),
+    'product_type'=>trim($_POST['product_type']),
     'movies_id'=>$realid
 
 );
@@ -63,6 +64,10 @@ $message = editUser($data);
 
  <label for="username">Price</label>
  <input type="text" name="movies_year" value="<?php echo $user_info['movies_year']; ?>" id="username">
+
+ 
+ <label for="username">Type</label>
+ <input type="text" name="product_type" value="<?php echo $user_info['product_type']; ?>" id="username">
 
  
  <button type="submit" name="submit">Update user</button>

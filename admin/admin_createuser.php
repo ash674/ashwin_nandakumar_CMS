@@ -10,7 +10,8 @@ if(isset($_POST['submit'])) {
         'movies_title'=>trim($_POST['movies_title']),
         'movies_year'=>trim($_POST['movies_year']),
         'movies_storyline'=>trim($_POST['movies_storyline']),
-        'movies_release'=>trim($_POST['movies_release'])
+        'movies_release'=>trim($_POST['movies_release']),
+        'product_type'=>trim($_POST['product_type'])
  );
 
     $message = createUser($data);
@@ -35,6 +36,7 @@ if(isset($_POST['submit'])) {
 <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
 </head>
 <body>
+<a href="index.php" class="redLink">Back to Dashboard page</a>
 <section class="createSection">
 <h2>Create Entry</h2>
 <?php echo !empty($message)?$message:''; ?>
@@ -60,6 +62,9 @@ if(isset($_POST['submit'])) {
 
 <label for="password">Product Color</label>
 <input type="text" name="movies_release" value="" id="password">
+
+<label for="password">Product Type</label>
+<input type="text" name="product_type" value="" id="password">
 
 <button type="submit" name="submit" >Create</button>
 

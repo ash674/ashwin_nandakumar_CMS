@@ -26,8 +26,8 @@ function createUser($user_data){
 
 $pdo = Database::getInstance()->getConnection();
 
-$create_user_query = 'INSERT INTO tbl_movies(movies_id, movies_cover, movies_title, movies_year, movies_storyline, movies_release)';
-$create_user_query.= ' VALUES(:movies_id, :movies_cover, :movies_title, :movies_year, :movies_storyline, :movies_release)';
+$create_user_query = 'INSERT INTO tbl_movies(movies_id, movies_cover, movies_title, movies_year, movies_storyline, movies_release, product_type)';
+$create_user_query.= ' VALUES(:movies_id, :movies_cover, :movies_title, :movies_year, :movies_storyline, :movies_release, :product_type)';
 $create_user_set = $pdo->prepare($create_user_query);
 $create_user_result = $create_user_set->execute(
 
@@ -37,7 +37,8 @@ $create_user_result = $create_user_set->execute(
 ':movies_title'=>$user_data['movies_title'],
 ':movies_year'=>$user_data['movies_year'],
 ':movies_storyline'=>$user_data['movies_storyline'],
-':movies_release'=>$user_data['movies_release']
+':movies_release'=>$user_data['movies_release'],
+':product_type'=>$user_data['product_type']
     )
 
     );
@@ -127,7 +128,7 @@ function editUser($user_data){
     
         $pdo = Database::getInstance()->getConnection();
     
-        $update_user_query = 'UPDATE tbl_movies SET movies_cover = :movies_cover, movies_title = :movies_title, movies_storyline = :movies_storyline, movies_release = :movies_release, movies_year = :movies_year, WHERE movies_id = :movies_id';
+        $update_user_query = 'UPDATE tbl_movies SET movies_cover = :movies_cover, movies_title = :movies_title, movies_storyline = :movies_storyline, movies_release = :movies_release, movies_year = :movies_year, product_type = :product_type WHERE movies_id = :movies_id';
         $update_user_set = $pdo->prepare($update_user_query);
         $update_user_result = $update_user_set->execute(
             array(
@@ -136,6 +137,7 @@ function editUser($user_data){
                 ':movies_storyline'=> $user_data['movies_storyline'],
                 ':movies_release'=> $user_data['movies_release'],
                 ':movies_year'=> $user_data['movies_year'],
+                ':product_type'=> $user_data['product_type'],
                 ':movies_id'=> $user_data['movies_id']
             )
         );
